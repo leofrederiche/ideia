@@ -1,0 +1,51 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+
+body{
+	margin: 0;
+}
+
+nav{
+	position: absolute;
+	background: rgba(0,0,0,0.03);
+	height: 6%;
+	width: 100%;
+}
+
+#titleNav{
+	color: #FF9933;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 125%;
+	padding: 5px;
+	float: left;
+	margin-top: 5px;
+	margin-left: 15%;
+	font-family: 'Droid Sans', sans-serif;
+}
+
+#btnNav{
+	text-decoration: none;
+	font-size: 150%;
+	border-left: 1px solid rgba(0,0,0,0.8);
+	border-right: 1px solid rgba(0,0,0,0.8);
+	padding: 5px;
+	float: left;
+	margin-left: 175px;
+	margin-right: -176px;
+	margin-top: 10px;
+	transition: 1s;
+}
+
+#btnNav:hover{
+	background-color: rgba(0,0,0,0.2);
+}
+
+/* index */
+
+#panel{
+	position: absolute;
+	top: 6%;
+	height: 94%;
+	width: 100%;
+	background: linear-gradient(to bottom,#FF9900 0,#FF9933 100%);
+}
