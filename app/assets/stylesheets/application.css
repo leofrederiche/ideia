@@ -12,7 +12,7 @@ nav{
 }
 
 #titleNav{
-	color: #FF9933;
+	color: #660000;
 	text-decoration: none;
 	font-weight: bold;
 	font-size: 125%;
@@ -47,5 +47,22 @@ nav{
 	top: 6%;
 	height: 94%;
 	width: 100%;
-	background: linear-gradient(to bottom,#FF9900 0,#FF9933 100%);
+	background: linear-gradient(to bottom,#660000 0,#660011 100%);
+}
+
+#lamp{
+	background-image: url('/assets/lampoff.png');
+	background-size: cover;
+	position: relative;
+	width: 140px;
+	height: 225px;
+	margin: 0 auto;
+	top: 20px;
+
+}
+
+#lamp:hover{
+	background-image: url('/assets/lampon.png');
+	background-
+	position: relative;
 }
