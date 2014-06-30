@@ -11,6 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140629185404) do
+
+  create_table "ideas", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.text     "idea"
+    t.string   "contact"
+    t.string   "link_project"
+    t.string   "ref"
+    t.integer  "like"
+    t.integer  "nlike"
+    t.string   "employees"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "password"
+    t.string   "email"
+    t.date     "date"
+    t.text     "description"
+    t.string   "image"
+    t.string   "contact"
+    t.integer  "like"
+    t.integer  "nlike"
+    t.string   "collaborates"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

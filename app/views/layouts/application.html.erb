@@ -10,11 +10,20 @@
 
 <nav>
 	<%= link_to "Group Idea", root_path, id: "titleNav" %>
-	<%= link_to "Ideias", root_path, id: "btnNav" %>
-	<%= link_to "Colaboradores", root_path, id: "btnNav" %>
+	<%= link_to "Ideias", root_path, id: "linkNav" %>
+	<%= link_to "Colaboradores", root_path, id: "linkNav" %>
+	<%= link_to "Como Funciona", about_path, id: "linkNav" %>
+	<%= link_to "Login", root_path, id: "btnNav" %>
+	<%= link_to "Sign-in", root_path, id: "btnNav" %>
 </nav>
 
 <%= yield %>
+
+<div id="rodape">
+	<p>
+		@2014 - Nenhum direito reservado
+	</p>
+</div>
 
 </body>
 </html>
