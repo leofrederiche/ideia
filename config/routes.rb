@@ -1,7 +1,21 @@
 Rails.application.routes.draw do
 
   get "/", to: "pages#index", as: :root
+  post "/", to: "pages#create", as: false
+
   get "/como-funciona", to: "pages#about", as: :about
+
+  get "/top-ideias", to: "pages#top_idea", as: :top_idea
+  get "/top-ideias/:id", to: "pages#update_like", as: :update_like
+  get "/top-ideias2/:id", to: "pages#update_nlike", as: :update_nlike
+
+  get "/idea/:id", to: "pages#show", as: :show
+  get "/edit/idea/:id", to: "pages#edit", as: :edit
+  patch "/idea/:id", to: "pages#update", as: :update
+
+
+  
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

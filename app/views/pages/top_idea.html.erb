@@ -1,0 +1,35 @@
+<div id="panel2">
+	<h1 style="position: relative; top: 20px;">
+		Top Ideias
+	</h1><br>
+	<h3>
+		Porque uma idéia sem execusão não passa de uma idéia.
+	</h3>
+</div>
+<aside style="top: 41%">
+	<% @ideas.order('like ASC').reverse.each do |i| %>
+		<div id="ideaInfo">
+			<p>
+				<strong style="margin-left: 30px;"><%= link_to i.title, show_path(i.id) %></strong>
+				<span style="position: absolute; left: 25%;"><%= i.description %></span>
+				<strong style="position: absolute; left: 70%;"><%= i.idealizer %></strong>
+				<span style="position: absolute; left: 90%;">
+					<%= link_to (image_tag "like.png"), update_like_path(i.id) %>
+					<% if i.like == nil %>
+						0
+					<% else %>
+						<%= i.like %>	
+					<% end %>
+
+					<%= link_to (image_tag "nlike.png"), update_nlike_path(i.id) %>
+					<% if i.nlike == nil %>
+						0
+					<% else %>
+						<%= i.nlike %>
+					<% end %>
+				</span>
+			</p>
+		</div>
+	<% end %>
+
+</aside>

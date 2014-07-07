@@ -1,17 +1,33 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:300);
+@font-face{
+	font-family: "cicle";
+	src: url("Cicle Fina.ttf");
+}
 
 body{
 	margin: 0;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'cicle';
 }
 
 nav{
 	position: fixed;
 	background: white;
-	height: 6%;
+	height: 45px;
 	width: 100%;
+	top: 0;
 	z-index: 10;
+	
 }
+
+a{
+	color: rgba(0,0,0,0.75);
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+	color: black;
+}
+
 
 #titleNav{
 	color: rgb(0,66,66);
@@ -74,6 +90,18 @@ nav{
 	height: 94%;
 	width: 100%;
 	background: linear-gradient(to bottom,rgb(0,66,66) 0,rgb(120,240,180)100%);
+}
+
+#panel2{
+	position: absolute;
+	top: 6%;
+	width: 100%;
+	height: 35%; 
+	background-image: url('/assets/idea_banner.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: rgba(0,0,0,0.8);
+	text-indent: 50px;
 }
 
 #lamp{
@@ -170,6 +198,13 @@ aside #container2{
 	border: none;
 }
 
+aside #container3{
+	position: relative;
+	margin-top: 0;
+	border: none;
+	float: left;
+}
+
 aside #container4{
 	margin-top: 15%;
 }
@@ -200,3 +235,43 @@ aside #imgOpenSource{
 	float: right;
 	margin-right: 50%;
 }
+
+/* WINDOWS SIGN-IN */
+
+#sign{
+	border: 1px solid black;
+	border-radius: 3px;
+	width: 300px;
+	padding: 10px;
+	display: none;
+	background-color: white;
+	position: fixed;
+	top: 20%;
+	left: 38%;
+	box-shadow: 1px 1px 10px black;
+}
+
+#colaborate{
+	border: 1px solid black;
+	border-radius: 3px;
+	width: 300px;
+	padding: 10px;
+	display: none;
+	background-color: white;
+	position: fixed;
+	top: 20%;
+	left: 38%;
+	box-shadow: 1px 1px 10px black;
+}
+
+/* Detais */
+
+#ideaInfo{
+	border: 1px solid black;
+	border-radius: 10px;
+	margin-top: 20px;
+	padding: 5px;
+	background-image: linear-gradient(to bottom, white, rgba(0,0,0,0.07));
+	box-shadow: inset 1px 1px 3px rgba(0,0,0,0.5);
+}
+

@@ -6,23 +6,43 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body id="bodyAll">
 
-<nav>
+<nav class="navbar">
 	<%= link_to "Group Idea", root_path, id: "titleNav" %>
-	<%= link_to "Ideias", root_path, id: "linkNav" %>
-	<%= link_to "Colaboradores", root_path, id: "linkNav" %>
+	<%= link_to "Top-Ideias", top_idea_path, id: "linkNav" %>
 	<%= link_to "Como Funciona", about_path, id: "linkNav" %>
-	<%= link_to "Login", root_path, id: "btnNav" %>
-	<%= link_to "Sign-in", root_path, id: "btnNav" %>
+	<div id="logar">
+		<%= button_tag "Nova Ideia", id: "btnNav", onclick: "openSign();" %>
+	</div>
 </nav>
 
 <%= yield %>
 
-<div id="rodape">
-	<p>
-		@2014 - Nenhum direito reservado
-	</p>
+<div id="sign">
+	<h3>Nova Ideia</h3>
+	<%= form_for @idea, url: root_path do |n| %>
+		<%= n.label :title, "Titulo da ideia: " %><br>
+		<%= n.text_field :title, maxlength: "15", style: "width: 170px" %>(maximo de 15)<br>
+
+		<%= n.label :description, "Descrisão basica: " %><br>
+		<%= n.text_field :description, maxlength: "50", style: "width: 170px" %>(maximo de 50)<br>
+
+		<%= n.label :idea, "Ideia: " %><br>
+		<%= n.text_area :idea %><br>
+
+		<%= n.label :contact, "Contato: " %><br>
+		<%= n.text_field :contact %><br>
+
+		<%= n.label :link_project, "Link do projeto: " %><br>
+		<%= n.text_field :link_project %><br>
+
+		<%= n.label :idealizer, "Idealizador: " %><br>
+		<%= n.text_field :idealizer, maxlength: "20", width: "150px" %>(maximo de 20)<br>
+
+		<%= n.submit "Adicionar" %>
+		<strong><%= link_to "Cancelar", "#", style: "color: red", onclick: "closeSign();" %><strong>
+	<% end %>
 </div>
 
 </body>

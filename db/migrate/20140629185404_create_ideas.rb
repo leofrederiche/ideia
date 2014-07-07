@@ -6,10 +6,11 @@ class CreateIdeas < ActiveRecord::Migration
       t.text :idea
       t.string :contact
       t.string :link_project
-      t.string :ref
+      t.string :idealizer
       t.integer :like
       t.integer :nlike
       t.string :employees
+      t.string :link_employees
 
       t.timestamps
     end
