@@ -17,3 +17,30 @@ function openColaborate(){
 function closeColaborate(){
 	document.getElementById("colaborate").style.display = "none";	
 }
+
+function openMenu(){
+	if( document.getElementById("user_menu").style.display == "none")
+	{
+		document.getElementById("user_menu").style.display = "block";
+		document.getElementById("arrow_down_menu").style.webkitTransform = 'rotate('+180+'deg)'; 
+	}
+	else{
+		document.getElementById("user_menu").style.display = "none";	
+		document.getElementById("arrow_down_menu").style.webkitTransform = 'rotate('+0+'deg)'; 
+	}
+}
+
+
+//links
+
+function logout(){
+	window.location.href = "/users/sign_out";
+}
+
+function perfil(){
+	window.location.href = "/perfil";
+}
+
+function user_ideas(){
+	window.location.href = "/ideas"
+}

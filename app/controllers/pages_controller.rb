@@ -1,10 +1,13 @@
 class PagesController < ApplicationController
+
+	before_action :authenticate_user!, only: [:show, :create, :update_like, :update_nlike]
+
 	def index
-		@idea = Ideas.new
+
 	end
 
 	def about
-		@idea = Ideas.new
+		
 	end
 
 	def create
@@ -16,16 +19,20 @@ class PagesController < ApplicationController
 		@idea.save
 
 		redirect_to show_path @idea
+		if user_signed_in?
+			@new_idea = Ideas.new
+		end
 	end
 
 	def top_idea
-		@idea = Ideas.new
 		@ideas = Ideas.all
 	end
 
 	def show
-		@ideas = Ideas.new
-		@idea = Ideas.find params[:id]
+		@ideas = Ideas.find params[:id]
+		if user_signed_in?
+			@new_idea = Ideas.new
+		end
 	end
 
 	def update
@@ -44,6 +51,9 @@ class PagesController < ApplicationController
 		@idea.save
 
 		redirect_to top_idea_path
+		if user_signed_in?
+			@new_idea = Ideas.new
+		end
 	end
 
 	def update_nlike
@@ -52,5 +62,8 @@ class PagesController < ApplicationController
 		@idea.save
 
 		redirect_to top_idea_path
+		if user_signed_in?
+			@new_idea = Ideas.new
+		end
 	end
 end

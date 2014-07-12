@@ -1,12 +1,10 @@
-<div id="panel2">
-	<h1 style="position: relative; left: 200px;">Top Idéias</h1>
-</div>
-<aside style="top: 41%">
-	<% unless user_signed_in? %>
-		<span>É preciso estar logado para acesar as idéias.</span>
-	<% end %>
-	<% @ideas.order('like ASC').reverse.each do |i| %>
-		<div id="ideaInfo">
+<aside>
+
+	<% @user_ideas.order('like ASC').reverse.each do |i| %>
+
+	<% if i.idealizer == @user.name + " #{@user.last_name}" %>
+
+		<div id="ideaInfo" style="position: relative; top: 0px;" >
 			<p>
 				<strong style="margin-left: 30px;"><%= link_to i.title, show_path(i.id) %></strong>
 				<span style="position: absolute; left: 25%;"><%= i.description %></span>
@@ -29,5 +27,5 @@
 			</p>
 		</div>
 	<% end %>
-
+	<% end %>
 </aside>

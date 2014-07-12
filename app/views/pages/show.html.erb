@@ -1,32 +1,32 @@
 <aside>
-	<p><strong>Titulo: </strong><%= @idea.title %></p>
-	<p><strong>Descrição: </strong><%= @idea.description %></p>
-	<p><strong>Ideia: </strong><%= @idea.idea %></p>
-	<p><strong>Contato: </strong><%= @idea.contact %></p>
-	<p><strong>Link do projeto: </strong><%= @idea.link_project %></p>
-	<p><strong>Idealizador: </strong><%= @idea.idealizer %></p>
+	<p><strong>Titulo: </strong><%= @ideas.title %></p>
+	<p><strong>Descrição: </strong><%= @ideas.description %></p>
+	<p><strong>Ideia: </strong><%= @ideas.idea %></p>
+	<p><strong>Contato: </strong><%= @ideas.contact %></p>
+	<p><strong>Link do projeto: </strong><%= link_to @ideas.link_project, @ideas.link_project %></p>
+	<p><strong>Idealizador: </strong><%= @ideas.idealizer %></p>
 	<p><strong>Gostei: </strong>
-		<% if @idea.like == nil %>
+		<% if @ideas.like == nil %>
 			0
 		<% else %>
-			<%= @idea.like %>	
+			<%= @ideas.like %>	
 		<% end %>
 	</p>
 	<p><strong>Não Gostei: </strong>
-		<% if @idea.nlike == nil %>
+		<% if @ideas.nlike == nil %>
 			0
 		<% else %>
-			<%= @idea.nlike %>
+			<%= @ideas.nlike %>
 		<% end %>
 	</p>
 	<p><strong>Colaboradores: </strong>
-		<%= @idea.employees %>
+		<%= @ideas.employees %>
 		<%= button_tag "Colaborar", onclick: "openColaborate();" %>
 	</p>
 
 	<div id="colaborate">
 		<h3>Colaborar</h3>
-		<%= form_for @idea, url: show_path do |n| %>
+		<%= form_for @ideas, url: show_path do |n| %>
 			<%= n.label :employees, "Seu Nome: " %><br>
 			<%= n.text_field :employees, maxlength: "15", style: "width: 170px", id: "edColaborate" %> (maximo de 15)<br>
 

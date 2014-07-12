@@ -12,16 +12,45 @@
 	<%= link_to "Group Idea", root_path, id: "titleNav" %>
 	<%= link_to "Top-Ideias", top_idea_path, id: "linkNav" %>
 	<%= link_to "Como Funciona", about_path, id: "linkNav" %>
+
+	<% if user_signed_in? %>
 	<div id="logar">
-		<%= button_tag "Nova Ideia", id: "btnNav", onclick: "openSign();" %>
+
+		<%= image_tag "arrow_down_menu.png", id: "arrow_down_menu", onclick: "openMenu();" %>
+		<span style="position: relative; float: right; top: 15px; margin-right: 30px;">Bem vinda(o), <%= @user.name %> !</span>
+
+		<div id="user_menu">
+			<ul>
+				<li onclick="openSign();">Nova Idéia</li>
+				<li>Colabora</li>
+				<li onclick="user_ideas();" >Idéias</li>
+				<li onclick="perfil();" >Perfil</li>
+				<li onclick="logout();">Sair</li>
+			</ul>
+		</div>
+
+		<!--
+			<%= button_tag "Nova Ideia", id: "btnNav", onclick: "openSign();" %>
+			<%= link_to "Sair", new_user_registration_path, id: "btnNav" %>
+		-->
 	</div>
+
+	<% else %>
+
+		<%= link_to "Cadastrar", new_user_registration_path, id: "btnNav" %>
+		<%= link_to "Login", user_session_path, id: "btnNav" %>
+	<% end %>
 </nav>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 
 <%= yield %>
 
+<% if user_signed_in? %>
 <div id="sign">
 	<h3>Nova Ideia</h3>
-	<%= form_for @idea, url: root_path do |n| %>
+	<%= form_for @new_idea, url: root_path do |n| %>
 		<%= n.label :title, "Titulo da ideia: " %><br>
 		<%= n.text_field :title, maxlength: "15", style: "width: 170px" %>(maximo de 15)<br>
 
@@ -38,12 +67,13 @@
 		<%= n.text_field :link_project %><br>
 
 		<%= n.label :idealizer, "Idealizador: " %><br>
-		<%= n.text_field :idealizer, maxlength: "20", width: "150px" %>(maximo de 20)<br>
+		<%= n.text_field :idealizer, maxlength: "20", width: "150px", value: "#{@user.name} #{@user.last_name}", readonly: true %>(maximo de 20)<br>
 
 		<%= n.submit "Adicionar" %>
 		<strong><%= link_to "Cancelar", "#", style: "color: red", onclick: "closeSign();" %><strong>
 	<% end %>
 </div>
+<% end %>
 
 </body>
 </html>

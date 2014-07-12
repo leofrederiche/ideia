@@ -1,0 +1,12 @@
+<div panel style="background: rgb(0,180,180); height: 80px;">
+</div>
+<aside>
+	<p style="position: relative; float: right;"><%= link_to  "Editar perfil", edit_user_registration_path %></p>
+	<h1>Perfil de <%= "#{@user.name} #{@user.last_name}" %></h1>
+	
+	<p><strong>Nome:</strong> <%= @user.name %> </p>
+	<p><strong>Sobrenome:</strong> <%= @user.last_name %> </p>
+	<p><strong>Idade:</strong> <%= @user.age %></p>
+	<p><strong>E-mail:</strong> <%= @user.email %></p>
+	<p><strong>Contato:</strong> <%= @user.contact %></p>
+</aside>
