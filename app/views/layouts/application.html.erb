@@ -22,7 +22,7 @@
 		<div id="user_menu">
 			<ul>
 				<li onclick="openSign();">Nova Idéia</li>
-				<li>Colabora</li>
+				<li onclick="collaborate();" ><%= link_to "Colabora", show_path(@user.collaborate), id: "link_to_list" %></li>
 				<li onclick="user_ideas();" >Idéias</li>
 				<li onclick="perfil();" >Perfil</li>
 				<li onclick="logout();">Sair</li>

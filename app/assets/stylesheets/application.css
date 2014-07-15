@@ -116,6 +116,21 @@ li:hover{
 	color: white;
 }
 
+#link_to_list{
+	position: relative;
+	padding-right: 126px;
+	padding: 10px 126px;
+	padding-left: 20px;
+	margin-left: -20px;
+	text-decoration: none;
+	color: black;
+	cursor: default;
+}
+
+#link_to_list:hover{
+	color: white;
+}
+
 #rodape{
 	position: fixed;
 	bottom: 0;

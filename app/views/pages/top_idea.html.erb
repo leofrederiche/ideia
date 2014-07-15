@@ -1,10 +1,12 @@
-<div id="panel2">
+<div id="panel2" style="width: 200px; height: 200px;">
 	<h1 style="position: relative; left: 200px;">Top Idéias</h1>
 </div>
+
 <aside style="top: 41%">
 	<% unless user_signed_in? %>
 		<span>É preciso estar logado para acesar as idéias.</span>
 	<% end %>
+	<br>
 	<% @ideas.order('like ASC').reverse.each do |i| %>
 		<div id="ideaInfo">
 			<p>

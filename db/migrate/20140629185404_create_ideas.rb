@@ -9,8 +9,6 @@ class CreateIdeas < ActiveRecord::Migration
       t.string :idealizer
       t.integer :like
       t.integer :nlike
-      t.string :employees
-      t.string :link_employees
 
       t.timestamps
     end

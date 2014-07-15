@@ -19,22 +19,18 @@
 			<%= @ideas.nlike %>
 		<% end %>
 	</p>
-	<p><strong>Colaboradores: </strong>
-		<%= @ideas.employees %>
-		<%= button_tag "Colaborar", onclick: "openColaborate();" %>
-	</p>
+	<% if @user.name + " #{@user.last_name}" == @ideas.idealizer %>
+		<p><strong>Colaboradores: </strong>
+			<% @user_collaborate.each do |u|%>
+				<% if u.collaborate.to_s == @ideas.id.to_s %>
+					<p><%= "#{u.name} #{u.last_name} (#{u.contact})" %></p>
+				<% end %>
+			<% end %>
+		</p>
+	<% end %>
 
-	<div id="colaborate">
-		<h3>Colaborar</h3>
-		<%= form_for @ideas, url: show_path do |n| %>
-			<%= n.label :employees, "Seu Nome: " %><br>
-			<%= n.text_field :employees, maxlength: "15", style: "width: 170px", id: "edColaborate" %> (maximo de 15)<br>
+	<%= form_for @ideas, url: show_path do |n| %>
+		<%= n.submit "Colaborar" %>
+	<% end %>
 
-			<%= n.label :link_employees, "Contato: " %><br>
-			<%= n.text_field :link_employees, style: "width: 170px", id: "edlink" %> (e-mail, telefone)<br>
-
-			<%= n.submit "Colaborar" %>
-			<strong><%= link_to "Cancelar", "#", style: "color: red", onclick: "closeColaborate();" %><strong>
-		<% end %>
-	</div>
 </aside>

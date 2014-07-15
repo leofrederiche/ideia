@@ -22,8 +22,6 @@ ActiveRecord::Schema.define(version: 20140711215735) do
     t.string   "idealizer"
     t.integer  "like"
     t.integer  "nlike"
-    t.string   "employees"
-    t.string   "link_employees"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -46,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140711215735) do
     t.integer  "age"
     t.string   "web_site"
     t.string   "contact"
+    t.string   "collaborate"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

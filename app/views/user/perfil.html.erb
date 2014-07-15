@@ -6,7 +6,9 @@
 	
 	<p><strong>Nome:</strong> <%= @user.name %> </p>
 	<p><strong>Sobrenome:</strong> <%= @user.last_name %> </p>
-	<p><strong>Idade:</strong> <%= @user.age %></p>
 	<p><strong>E-mail:</strong> <%= @user.email %></p>
-	<p><strong>Contato:</strong> <%= @user.contact %></p>
+	<p><strong>Web Site:</strong> <%= link_to "#{@user.web_site}", @user.web_site %> </p>
+	<p><strong>Idade:</strong> <%= @user.age %></p>
+	<p><strong>Contato:</strong> <%= @user.contact %><span style="color: green"> (Necessario para fazer uma colaboração)</span></p>
+	<p><strong>Colabora:</strong> <%= @user.collaborate %> </p>
 </aside>

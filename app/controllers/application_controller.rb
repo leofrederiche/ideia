@@ -11,16 +11,17 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:sign_up) << :age
       devise_parameter_sanitizer.for(:sign_up) << :web_site
       devise_parameter_sanitizer.for(:sign_up) << :contact
+      devise_parameter_sanitizer.for(:sign_up) << :collaborate
       devise_parameter_sanitizer.for(:account_update) { |u| 
-      u.permit(:password, :password_confirmation, :current_password, :name, :last_name, :age, :email, :contact) 
+      u.permit(:password, :password_confirmation, :current_password, :name, :last_name, :age, :web_site, :email, :contact, :collaborate) 
     }
     end
 
   	private
   	def loading_idea
-  		@new_idea = Ideas.new
-        if user_signed_in?
-          @user = User.find(current_user)
-        end
+  	  @new_idea = Ideas.new
+      if user_signed_in?
+        @user = User.find(current_user)
+      end
   	end
 end
