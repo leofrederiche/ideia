@@ -23,10 +23,14 @@ function openMenu(){
 	{
 		document.getElementById("user_menu").style.display = "block";
 		document.getElementById("arrow_down_menu").style.webkitTransform = 'rotate('+180+'deg)'; 
+		document.getElementById("arrow_down_menu").style.mozTransform = 'rotate('+180+'deg)'; 
+		document.getElementById("arrow_down_menu").style.msTransform = 'rotate('+180+'deg)'; 
 	}
 	else{
 		document.getElementById("user_menu").style.display = "none";	
 		document.getElementById("arrow_down_menu").style.webkitTransform = 'rotate('+0+'deg)'; 
+		document.getElementById("arrow_down_menu").style.mozTransform = 'rotate('+0+'deg)'; 
+		document.getElementById("arrow_down_menu").style.msTransform = 'rotate('+0+'deg)'; 
 	}
 }
 

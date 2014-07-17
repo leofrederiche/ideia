@@ -19,8 +19,24 @@
 			<%= @ideas.nlike %>
 		<% end %>
 	</p>
+
+	<% if @user.collaborate == nil %>
+		<% if @user.contact == nil %>
+			<p style="color: red"><strong>Você precisa adicionar um contato no seu perfil para poder colaborar.</strong></p>
+		<% else %>
+			<%= form_for @ideas, url: show_path do |n| %>
+				<%= n.submit "Colaborar" %>
+			<% end %>
+		<% end %>
+	<% elsif @user.collaborate.to_s == @ideas.id.to_s %>
+		<p style="color: green;"><strong>Você está colaborando nesta idéia.</strong></p>
+	<% else %>
+		<p style="color: red;" ><strong>Você está colaborando em outra idéia.</strong></p>
+	<% end %>
+
 	<% if @user.name + " #{@user.last_name}" == @ideas.idealizer %>
 		<p><strong>Colaboradores: </strong>
+
 			<% @user_collaborate.each do |u|%>
 				<% if u.collaborate.to_s == @ideas.id.to_s %>
 					<p><%= "#{u.name} #{u.last_name} (#{u.contact})" %></p>
@@ -29,8 +45,5 @@
 		</p>
 	<% end %>
 
-	<%= form_for @ideas, url: show_path do |n| %>
-		<%= n.submit "Colaborar" %>
-	<% end %>
 
 </aside>
