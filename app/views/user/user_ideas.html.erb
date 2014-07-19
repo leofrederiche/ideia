@@ -1,8 +1,12 @@
-<aside>
-	<p style="position: relative; left: -70px; margin-bottom: -100px; -webkit-transform: rotate(-10deg);-moz-transform: rotate(-10deg);">
-		<%= image_tag "lampon.png", width: "150px" %>
+<div id="panel2">
+	<h1 style="position: relative; left: 230px;">Minhas Idéias</h1>
+	<p style="position: absolute; top: 10%; left: 5%;">
+		<%= image_tag "banner_index.png", width: "150px" %>
 	</p>
-	<h1 style="position: relative; left: 90px;">Minhas Idéias</h1>
+	
+</div>
+
+<aside style="position: relative; top: 200px;">
 	<% @user_ideas.order('like ASC').reverse.each do |i| %>
 
 	<% if i.idealizer == @user.name + " #{@user.last_name}" %>

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get "/top-ideias/:id", to: "pages#update_like", as: :update_like
   get "/top-ideias2/:id", to: "pages#update_nlike", as: :update_nlike
 
+  get "/nova-ideia", to: "pages#new_idea", as: :new_idea
+
   get "/idea/:id", to: "pages#show", as: :show
   get "/edit/idea/:id", to: "pages#edit", as: :edit
   patch "/idea/:id", to: "pages#update", as: :update
@@ -17,6 +19,8 @@ Rails.application.routes.draw do
   get "/perfil", to: "user#perfil", as: :perfil
 
   get "/ideas", to: "user#user_ideas", as: :user_ideas
+
+
 
 
   

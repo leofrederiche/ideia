@@ -1,7 +1,7 @@
-<aside>
+<aside id="windows_form">
 	<p><strong>Titulo: </strong><%= @ideas.title %></p>
 	<p><strong>Descrição: </strong><%= @ideas.description %></p>
-	<strong>Ideia: </strong><textarea style="width: 300px; height: 400px;"><%= @ideas.idea %></textarea>
+	<strong>Ideia: </strong><scan style="width: 300px; height: 400px;"><%= @ideas.idea %></scan>
 	<p><strong>Contato: </strong><%= @ideas.contact %></p>
 	<p><strong>Link do projeto: </strong><%= link_to @ideas.link_project, @ideas.link_project %></p>
 	<p><strong>Idealizador: </strong><%= @ideas.idealizer %></p>
@@ -25,7 +25,7 @@
 			<p style="color: red"><strong>Você precisa adicionar um contato no seu perfil para poder colaborar.</strong></p>
 		<% else %>
 			<%= form_for @ideas, url: show_path do |n| %>
-				<%= n.submit "Colaborar" %>
+				<%= n.submit "Colaborar", id: "btnForm" %>
 			<% end %>
 		<% end %>
 	<% elsif @user.collaborate.to_s == @ideas.id.to_s %>

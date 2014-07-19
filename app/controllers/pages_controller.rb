@@ -6,6 +6,10 @@ class PagesController < ApplicationController
 
 	end
 
+	def new_idea
+
+	end
+
 	def about
 		
 	end

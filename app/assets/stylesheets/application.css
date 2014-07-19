@@ -28,6 +28,11 @@ a:hover{
 	color: black;
 }
 
+input{
+	padding: 10px;
+	margin: 10px 0px;
+}
+
 
 #titleNav{
 	color: white;
@@ -89,11 +94,11 @@ a:hover{
 #user_menu{
 	background: rgb(53,53,53);
 	color: white;
-	width: 200px;
+	width: 235px;
 	height: 225px;
 	position: fixed;
 	top: 65px;
-	left: 82%;
+	left: 77%;
 	display: none;
 }
 ul{
@@ -115,7 +120,7 @@ li:hover{
 
 #link_to_list{
 	position: relative;
-	padding-right: 126px;
+	padding-right: 50px;
 	padding: 10px 126px;
 	padding-left: 20px;
 	margin-left: -20px;
@@ -142,13 +147,22 @@ li:hover{
 
 #panel2{
 	position: absolute;
-	top: 6%;
+	top: 15%;
 	left: 0;
-	width: 15%;
-	height: 150px;
-	background-image: url('/assets/crown.png');
-	background-size: cover;
+	width: 100%;
+	height: 100px;
+	background: rgba(0,0,0,0.05);
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
+	font-size: 120%;
+}
+
+#crown{
+	position: relative;
+	width: 150px;
+	height: 150px;
+	left: 5%;
+	top: -20px;
 }
 
 #banner_index{
@@ -317,12 +331,30 @@ aside #imgOpenSource{
 	position: relative;
 	float: right;
 	width: 90%;
-	top: -200px;
+	top: -100px;
+	left: 30px;
 }
 
-#windows_login{
-	margin: 0 auto;
-	border: 1px solid black;
-	border-radius: 5px;
+#windows_form{
+	position: absolute;
+	padding: 40px;
+	text-align: center;
+	box-shadow: 0px 0px 3px rgba(0,0,0,0.5);
 	background-color: rgba(0,0,0,0.05);
+	width: 50%;
+	left: 20%;
+}
+
+#input_text_form{
+	width: 300px;
+}
+
+#btnForm{
+	background: #3399FF; 
+	width: 150px; 
+	border: none;
+}
+
+#btnForm:hover{
+	background-color: #003399;
 }
