@@ -14,7 +14,7 @@
 	<%= link_to "Como Funciona", about_path, id: "linkNav" %>
 
 	<% if user_signed_in? %>
-	<div id="logar">
+	<div id="logar" style="color: white;">
 
 		<%= image_tag "arrow_down_menu.png", id: "arrow_down_menu", onclick: "openMenu();" %>
 		<span style="position: relative; float: right; top: 15px; margin-right: 30px;">Bem vinda(o), <%= @user.name %> !</span>

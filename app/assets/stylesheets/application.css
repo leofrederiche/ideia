@@ -10,12 +10,12 @@ body{
 
 nav{
 	position: fixed;
-	background: white;
-	height: 45px;
+	background: rgb(53,53,53);
+	height: 65px;
 	width: 100%;
-	top: 0;
+	top: 0px;
 	z-index: 10;
-	border-bottom: 1px solid rgba(0,0,0,0.3);
+	font-size: 135%;
 }
 
 a{
@@ -30,51 +30,51 @@ a:hover{
 
 
 #titleNav{
-	color: rgb(0,66,66);
+	color: white;
 	text-decoration: none;
 	font-weight: bold;
 	font-size: 125%;
 	padding: 5px;
 	float: left;
-	margin-top: 5px;
+	margin-top: 10px;
 	margin-left: 15%;
 }
 
 #linkNav{
-	color: rgb(0,180,180);
+	color: rgb(128,128,128);
 	text-decoration: none;
 	font-weight: bold;
 	font-size: 125%;
 	padding: 5px;
 	float: left;
-	margin-top: 5px;
+	margin-top: 10px;
 	margin-left: 10%;
 	margin-right: -8%;
 }
 
 #linkNav:hover{
-	color: rgb(0,66,66);
+	color: white;
 }
 
 #btnNav{
-	color: black;
+	
 	text-decoration: none;
 	font-size: 100%;
 	padding: 2px 10px;
 	float: right;
-	margin-top: 5px;
+	margin-top: 13px;
 	margin-left: -9%;
 	margin-right: 10%;
-	border: 1px solid rgba(0,0,0,0.7);
-	border-radius: 2px;
+	
 	position: relative;
 	top: 5px;
-	background-color: white;
 
+	background-color: white;
+	color: rgb(64,64,64);
 }
 
 #btnNav:hover{
-	background-color: rgb(0,120,120);
+	background-color: rgb(128,128,128);
 	color: white;
 }
 
@@ -87,15 +87,13 @@ a:hover{
 }
 
 #user_menu{
-	background-color: white;
-	border: 1px solid rgba(0,0,0,0.3);
-	border-bottom: 1px solid rgba(0,0,0,0.3);
-	border-top: white;
+	background: rgb(53,53,53);
+	color: white;
 	width: 200px;
-	height: 190px;
+	height: 225px;
 	position: fixed;
-	top: 45px;
-	left: 80%;
+	top: 65px;
+	left: 82%;
 	display: none;
 }
 ul{
@@ -122,12 +120,8 @@ li:hover{
 	padding-left: 20px;
 	margin-left: -20px;
 	text-decoration: none;
-	color: black;
-	cursor: default;
-}
-
-#link_to_list:hover{
 	color: white;
+	cursor: default;
 }
 
 #rodape{
@@ -142,7 +136,8 @@ li:hover{
 	top: 6%;
 	height: 94%;
 	width: 100%;
-	background: linear-gradient(to bottom,rgb(0,66,66) 0,rgb(120,240,180)100%);
+	background-image: url('/assets/background_index2.jpg');
+	background-size: cover;
 }
 
 #panel2{
@@ -156,37 +151,32 @@ li:hover{
 	background-repeat: no-repeat;
 }
 
-#lamp{
-	background-image: url('/assets/lampoff.png');
-	background-size: cover;
+#banner_index{
+	background-image: url('/assets/banner_index.png');
+	background-size: 100% 100%;
 	position: absolute;
-	width: 20%;
-	height: 32%;
-	top: 15%;
-	left: 46%;
-}
-
-#lamp:hover{
-	background-image: url('/assets/lampon.png');
-	background-
-	position: relative;
+	width: 25%;
+	height: 50%;
+	left: 15%;
+	top: 23%;
 }
 
 #textPanel{
 	color: white;
-	border: 3px solid white;
-	border-radius: 15px;
 	position: absolute;
 	width: 40%;
-	text-align: center;
-	top: 55%;
-	left: 30%;
+	text-align: left;
+	padding-left: 2%;
+	top: 60%;
+	left: 55%;
+	font-size: 200%;
+	background-color: rgba(0,0,0,0.5);
 	transition: 0.5s;
 }
 
 #textPanel:hover{
 	color: black;
-	background-color: white;
+	background-color: rgba(999,999,999,0.5);
 }
 
 section{
@@ -235,9 +225,10 @@ h4{
 
 aside{
 	position: absolute;
-	top: 6%;
+	top: 15%;
 	width: 80%;
 	left: 10%;
+	font-size: 135%;
 }
 
 aside #container{
@@ -300,7 +291,7 @@ aside #imgOpenSource{
 	position: fixed;
 	top: 20%;
 	left: 38%;
-	box-shadow: 30px 30px 10px rgba(0,0,0,0.1);
+	box-shadow: 30px 30px 10px rgba(0,0,0,0.5);
 }
 
 #colaborate{
@@ -329,3 +320,9 @@ aside #imgOpenSource{
 	top: -200px;
 }
 
+#windows_login{
+	margin: 0 auto;
+	border: 1px solid black;
+	border-radius: 5px;
+	background-color: rgba(0,0,0,0.05);
+}
