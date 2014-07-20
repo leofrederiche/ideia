@@ -1,8 +1,3 @@
-function openSign(){
-	document.getElementById("sign").style.display = "block";
-	document.getElementById("bodyAll").style.transition = "0.5s";
-}
-
 function closeSign(){
 	document.getElementById("sign").style.display = "none";
 }
@@ -46,5 +41,13 @@ function perfil(){
 }
 
 function user_ideas(){
-	window.location.href = "/ideas"
+	window.location.href = "/ideas";
+}
+
+function newIdea(){
+	window.location.href = "/nova-ideia";
+}
+
+function collaborate(){
+	window.location.href = "/off-collaborate";
 }

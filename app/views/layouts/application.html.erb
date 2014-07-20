@@ -16,12 +16,12 @@
 	<% if user_signed_in? %>
 	<div id="logar" style="color: white;">
 
-		<%= image_tag "arrow_down_menu.png", id: "arrow_down_menu", onclick: "openMenu();" %>
-		<span style="position: relative; float: right; top: 15px; margin-right: 30px;">Bem vinda(o), <%= @user.name %> !</span>
+		<%= image_tag "arrow_down_menu2.png", onclick: "openMenu();", id: "arrow_down_menu" %>
+		<span style="position: relative; float: right; top: 20px; margin-right: 30px;">Bem vinda(o), <%= @user.name %> !</span>
 
 		<div id="user_menu">
 			<ul>
-				<li><%= link_to "Nova Ideia", new_idea_path, id: "link_to_list" %></li>
+				<li onclick="newIdea();">Nova Idéia</li>
 				<% unless @user.collaborate  == nil%>
 					<li onclick="collaborate();" ><%= link_to "Colabora", show_path(@user.collaborate), id: "link_to_list" %></li>
 				<% end %>

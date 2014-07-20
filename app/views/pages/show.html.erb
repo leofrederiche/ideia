@@ -30,6 +30,7 @@
 		<% end %>
 	<% elsif @user.collaborate.to_s == @ideas.id.to_s %>
 		<p style="color: green;"><strong>Você está colaborando nesta idéia.</strong></p>
+		<%= button_tag "Parar de colaborar", id: "btnForm", onclick: "collaborate();" %>
 	<% else %>
 		<p style="color: red;" ><strong>Você está colaborando em outra idéia.</strong></p>
 	<% end %>

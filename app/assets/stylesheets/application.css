@@ -87,18 +87,18 @@ input{
 	width: 30px;
 	position: relative;
 	float: right;
-	top: 10px;
+	top: 18px;
 	margin-right: 5%;
 }
 
 #user_menu{
 	background: rgb(53,53,53);
 	color: white;
-	width: 235px;
-	height: 225px;
+	width: 15%;
+	font-size: 100%;
 	position: fixed;
 	top: 65px;
-	left: 77%;
+	margin-left: 81%;
 	display: none;
 }
 ul{
@@ -139,9 +139,10 @@ li:hover{
 #panel{
 	position: absolute;
 	top: 6%;
-	height: 94%;
+	height: 84%;
 	width: 100%;
-	background-image: url('/assets/background_index2.jpg');
+	background-image: linear-gradient(to bottom, #DF6E32, #DE6A2F);
+	/*background-image: url('/assets/background_index2.jpg'); */
 	background-size: cover;
 }
 
@@ -166,36 +167,26 @@ li:hover{
 }
 
 #banner_index{
-	background-image: url('/assets/banner_index.png');
+	background-image: url('/assets/banner_index.jpg');
 	background-size: 100% 100%;
-	position: absolute;
-	width: 25%;
-	height: 50%;
-	left: 15%;
-	top: 23%;
+	position: relative;
+	width: 15%;
+	height: 30%;
+	top: -3%;
+	left: 42%;
 }
 
 #textPanel{
 	color: white;
-	position: absolute;
-	width: 40%;
-	text-align: left;
+	position: relative;
 	padding-left: 2%;
-	top: 60%;
-	left: 55%;
-	font-size: 200%;
-	background-color: rgba(0,0,0,0.5);
-	transition: 0.5s;
-}
-
-#textPanel:hover{
-	color: black;
-	background-color: rgba(999,999,999,0.5);
+	font-size: 100%;
+	top: -30px;
 }
 
 section{
 	position: absolute;
-	top: 100%;
+	top: 120%;
 	width: 80%;
 	left: 10%;
 }

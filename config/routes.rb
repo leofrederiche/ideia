@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   get "/ideas", to: "user#user_ideas", as: :user_ideas
 
+  get "/off-collaborate", to: "user#collaborate", as: :collaborate
+
 
 
 
