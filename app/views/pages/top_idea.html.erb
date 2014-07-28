@@ -11,7 +11,7 @@
 <aside style="top: 41%">
 	
 	<br>
-	<% @ideas.order('like desc').reverse.each do |i| %>
+	<% @ideas.order('like').reverse.each do |i| %>
 		<div id="ideaInfo">
 			<p>
 				<strong style="margin-left: 30px;"><%= link_to i.title, show_path(i.id) %></strong>
