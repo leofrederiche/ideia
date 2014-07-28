@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   get "/perfil", to: "user#perfil", as: :perfil
 
-  get "/ideas", to: "user#user_ideas", as: :user_ideas
+  get "/ideias", to: "user#user_ideas", as: :user_ideas
 
   get "/off-collaborate", to: "user#collaborate", as: :collaborate
 
