@@ -41,7 +41,7 @@ function perfil(){
 }
 
 function user_ideas(){
-	window.location.href = "/ideas";
+	window.location.href = "/ideias";
 }
 
 function newIdea(){

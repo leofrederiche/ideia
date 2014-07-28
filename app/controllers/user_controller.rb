@@ -5,6 +5,7 @@ class UserController < ApplicationController
 
 	def user_ideas
 		@user_ideas = Ideas.all
+		@user = User.find(current_user)
 	end
 
 	def collaborate

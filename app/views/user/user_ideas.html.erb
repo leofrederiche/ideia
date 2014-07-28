@@ -7,7 +7,7 @@
 </div>
 
 <aside style="position: relative; top: 200px;">
-	<% @user_ideas.order('like ASC').reverse.each do |i| %>
+	<% @user_ideas.each do |i| %>
 
 	<% if i.idealizer == @user.name + " #{@user.last_name}" %>
 
