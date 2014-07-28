@@ -1,11 +1,9 @@
-@font-face{
-	font-family: "cicle";
-	src: url("/assets/stylesheets/Cicle Fina.ttf");
-}
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
 
 body{
 	margin: 0;
-	font-family: 'cicle';
+	font-family: 'Open Sans', sans-serif;
+	font-size: 90%;
 }
 
 nav{
