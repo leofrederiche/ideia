@@ -16,7 +16,7 @@
 				<strong style="margin-left: 30px;"><%= link_to i.title, show_path(i.id) %></strong>
 				<span style="position: absolute; left: 25%;"><%= i.description %></span>
 				<strong style="position: absolute; left: 70%;"><%= i.idealizer %></strong>
-				<span style="position: absolute; left: 90%;">
+				<span style="position: absolute; left: 88%; width: 150px;">
 					<%= link_to (image_tag "like.png"), update_like_path(i.id) %>
 					<% if i.like == nil %>
 						0

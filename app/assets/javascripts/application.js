@@ -29,6 +29,9 @@ function openMenu(){
 	}
 }
 
+function block_like(){
+}
+
 
 //links
 

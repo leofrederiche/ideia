@@ -17,15 +17,15 @@
 				<strong style="margin-left: 30px;"><%= link_to i.title, show_path(i.id) %></strong>
 				<span style="position: absolute; left: 25%;"><%= i.description %></span>
 				<strong style="position: absolute; left: 70%;"><%= i.idealizer %></strong>
-				<span style="position: absolute; left: 90%;">
-					<%= link_to (image_tag "like.png"), update_like_path(i.id) %>
+				<span style="position: absolute; left: 88%; width: 150px;">
+					<%= link_to (image_tag "like.png"), update_like_path(i.id), title: "like", onclick: "block_like();", id: "like" %>
 					<% if i.like == nil %>
 						0
 					<% else %>
 						<%= i.like %>	
 					<% end %>
 
-					<%= link_to (image_tag "nlike.png"), update_nlike_path(i.id) %>
+					<%= link_to (image_tag "nlike.png"), update_nlike_path(i.id), title: "dislike" %>
 					<% if i.nlike == nil %>
 						0
 					<% else %>
