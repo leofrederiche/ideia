@@ -12,10 +12,12 @@
 
 		<%= n.text_field :link_project, placeholder: "Link do projeto", id: "input_text_form" %><br>
 
-		<%= n.text_field :idealizer, maxlength: "20", width: "150px", value: "#{@user.name} #{@user.last_name}", readonly: true, id: "input_text_form" %><br>
+		<%= n.text_field :idealizer, maxlength: "20", width: "150px", value: "#{@user.id} ", readonly: true, id: "input_text_form" %><br>
 
 		<%= n.submit "Adicionar", id: "btnForm" %>
 	<% end %>
 </div>
 
 </aside>
+
+FAZER COM QUE O IDEALIZADOR APARESA CONFORME O ID SALVO EM "IDEALIZER" no db de ideias

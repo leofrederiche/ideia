@@ -9,13 +9,12 @@
 <aside style="position: relative; top: 200px;">
 	<% @user_ideas.each do |i| %>
 
-	<% if i.idealizer == @user.name + " #{@user.last_name}" %>
-
+	<% if i.idealizer.to_i == @user.id.to_i %>
 		<div id="ideaInfo" style="position: relative; top: 0px;" >
 			<p>
 				<strong style="margin-left: 30px;"><%= link_to i.title, show_path(i.id) %></strong>
 				<span style="position: absolute; left: 25%;"><%= i.description %></span>
-				<strong style="position: absolute; left: 70%;"><%= i.idealizer %></strong>
+				<strong style="position: absolute; left: 70%;"><%= link_to "#{@user_all.find(i.idealizer).name} #{@user_all.find(i.idealizer).last_name}", perfil_path(i.idealizer) %></strong>
 				<span style="position: absolute; left: 88%; width: 150px;">
 					<%= link_to (image_tag "like.png"), update_like_path(i.id) %>
 					<% if i.like == nil %>

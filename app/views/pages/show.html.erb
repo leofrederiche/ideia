@@ -1,22 +1,22 @@
 <aside id="windows_form">
-	<p><strong>Titulo: </strong><%= @ideas.title %></p>
-	<p><strong>Descrição: </strong><%= @ideas.description %></p>
-	<strong>Ideia: </strong><scan style="width: 300px; height: 400px;"><%= @ideas.idea %></scan>
-	<p><strong>Contato: </strong><%= @ideas.contact %></p>
-	<p><strong>Link do projeto: </strong><%= link_to @ideas.link_project, @ideas.link_project %></p>
-	<p><strong>Idealizador: </strong><%= @ideas.idealizer %></p>
+	<p><strong>Titulo: </strong><%= @idea.title %></p>
+	<p><strong>Descrição: </strong><%= @idea.description %></p>
+	<strong>Ideia: </strong><scan style="width: 300px; height: 400px;"><%= @idea.idea %></scan>
+	<p><strong>Contato: </strong><%= @idea.contact %></p>
+	<p><strong>Link do projeto: </strong><%= link_to @idea.link_project, @idea.link_project %></p>
+	<p><strong>Idealizador: </strong><%= link_to "#{@user_collaborate.find(@idea.idealizer).name} #{@user_collaborate.find(@idea.idealizer).last_name}", perfil_path(@user_collaborate.find(@idea.idealizer).id) %></p>
 	<p><strong>Gostei: </strong>
-		<% if @ideas.like == nil %>
+		<% if @idea.like == nil %>
 			0
 		<% else %>
-			<%= @ideas.like %>	
+			<%= @idea.like %>	
 		<% end %>
 	</p>
 	<p><strong>Não Gostei: </strong>
-		<% if @ideas.nlike == nil %>
+		<% if @idea.nlike == nil %>
 			0
 		<% else %>
-			<%= @ideas.nlike %>
+			<%= @idea.nlike %>
 		<% end %>
 	</p>
 
@@ -24,22 +24,22 @@
 		<% if @user.contact == nil %>
 			<p style="color: red"><strong>Você precisa adicionar um contato no seu perfil para poder colaborar.</strong></p>
 		<% else %>
-			<%= form_for @ideas, url: show_path do |n| %>
-				<%= n.submit "Colaborar", id: "btnForm" %>
+			<%= form_for @idea, url: show_path do |n| %>
+				<%= n.submit "Quero colaborar", id: "btnForm" %>
 			<% end %>
 		<% end %>
-	<% elsif @user.collaborate.to_s == @ideas.id.to_s %>
+	<% elsif @user.collaborate.to_s == @idea.id.to_s %>
 		<p style="color: green;"><strong>Você está colaborando nesta idéia.</strong></p>
 		<%= button_tag "Parar de colaborar", id: "btnForm", onclick: "collaborate();" %>
 	<% else %>
 		<p style="color: red;" ><strong>Você está colaborando em outra idéia.</strong></p>
 	<% end %>
 
-	<% if @user.name + " #{@user.last_name}" == @ideas.idealizer %>
+	<% if @user.email == @idea.idealizer %>
 		<p><strong>Colaboradores: </strong>
 
 			<% @user_collaborate.each do |u|%>
-				<% if u.collaborate.to_s == @ideas.id.to_s %>
+				<% if u.collaborate.to_s == @idea.id.to_s %>
 					<p><%= "#{u.name} #{u.last_name} (#{u.contact})" %></p>
 				<% end %>
 			<% end %>

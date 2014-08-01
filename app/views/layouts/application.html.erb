@@ -27,7 +27,9 @@
 					<li onclick="collaborate();" ><%= link_to "Colabora", show_path(@user.collaborate), id: "link_to_list" %></li>
 				<% end %>
 				<li onclick="user_ideas();" >Idéias</li>
-				<li onclick="perfil();" >Perfil</li>
+				<%= link_to perfil_path(@user.id), style: "color: white; text-decoration: none; cursor: default;" do %>
+					<li>Perfil</li>
+				<% end %>
 				<li onclick="logout();">Sair</li>
 			</ul>
 		</div>

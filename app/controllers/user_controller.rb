@@ -1,6 +1,7 @@
 class UserController < ApplicationController
 	def perfil
-		@user = User.find(current_user)
+		@user_perfil = User.find params[:id]
+		@employer = Ideas.all
 	end
 
 	def user_ideas

@@ -31,7 +31,7 @@ class PagesController < ApplicationController
 	end
 
 	def show
-		@ideas = Ideas.find params[:id]
+		@idea = Ideas.find params[:id]
 		@user_collaborate = User.all
 		if user_signed_in?
 			@new_idea = Ideas.new
@@ -39,11 +39,11 @@ class PagesController < ApplicationController
 	end
 
 	def update
-		@ideas = Ideas.find params[:id]
+		@idea = Ideas.find params[:id]
 		if @user.collaborate == nil
-			@user.collaborate = @ideas.id
+			@user.collaborate = @idea.id
 			@user.save
-			redirect_to show_path @ideas
+			redirect_to show_path @idea
 		else
 			redirect_to show_path @ideas
 		end
