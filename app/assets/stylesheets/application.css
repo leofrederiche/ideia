@@ -82,7 +82,6 @@ input{
 }
 
 #arrow_down_menu{
-	width: 30px;
 	position: relative;
 	float: right;
 	top: 18px;
@@ -194,7 +193,7 @@ section{
 	width: 25%;
 	margin-left: 15%;
 	position: relative;
-	float: left;
+	float: right;
 }
 
 h4{

@@ -30,6 +30,7 @@ function openMenu(){
 }
 
 function block_like(){
+	document.getElementById('like').disabled = true;
 }
 
 

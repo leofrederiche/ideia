@@ -51,31 +51,74 @@ class PagesController < ApplicationController
 
 	def update_like
 		@idea = Ideas.find params[:id]
-		if @idea.like == nil
-			@idea.like = 1
-		else
-			@idea.like = @idea.like + 1
-			@idea.save
-		end
 
-		redirect_to top_idea_path
-		if user_signed_in?
-			@new_idea = Ideas.new
-		end
+		if @user.liked == @idea.id
+			redirect_to top_idea_path
+
+		elsif @user.liked == nil
+			@user.liked = @idea.id
+			@user.save
+			if @idea.like == nil
+				@idea.like = 1
+			else
+				@idea.like = @idea.like + 1
+				@idea.save
+			end
+			redirect_to top_idea_path
+			if user_signed_in?
+				@new_idea = Ideas.new
+			end
+
+		else
+			@user.liked = @idea.id
+			@user.save
+			if @idea.like == nil
+				@idea.like = 1
+			else
+				@idea.like = @idea.like + 1
+				@idea.save
+			end
+			redirect_to top_idea_path
+			if user_signed_in?
+				@new_idea = Ideas.new
+			end
+
+		end		
 	end
 
 	def update_nlike
 		@idea = Ideas.find params[:id]
-		if @idea.nlike == nil
-			@idea.nlike = 1
-		else
-			@idea.nlike = @idea.nlike + 1
-			@idea.save
-		end
+		if @user.nliked == @idea.id
+			redirect_to top_idea_path
 
-		redirect_to top_idea_path
-		if user_signed_in?
-			@new_idea = Ideas.new
+		elsif @user.nliked == nil
+			@user.nliked = @idea.id
+			@user.save
+			if @idea.nlike == nil
+				@idea.nlike = 1
+			else
+				@idea.nlike = @idea.nlike + 1
+				@idea.save
+			end
+			redirect_to top_idea_path
+			if user_signed_in?
+				@new_idea = Ideas.new
+			end
+
+		else
+			@user.nliked = @idea.id
+			@user.save
+			if @idea.nlike == nil
+				@idea.nlike = 1
+			else
+				@idea.nlike = @idea.nlike + 1
+				@idea.save
+			end
+			redirect_to top_idea_path
+			if user_signed_in?
+				@new_idea = Ideas.new
+			end
+			
 		end
 	end
 end

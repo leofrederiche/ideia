@@ -4,7 +4,7 @@
 	<strong>Ideia: </strong><scan style="width: 300px; height: 400px;"><%= @idea.idea %></scan>
 	<p><strong>Contato: </strong><%= @idea.contact %></p>
 	<p><strong>Link do projeto: </strong><%= link_to @idea.link_project, @idea.link_project %></p>
-	<p><strong>Idealizador: </strong><%= link_to "#{@user_collaborate.find(@idea.idealizer).name} #{@user_collaborate.find(@idea.idealizer).last_name}", perfil_path(@user_collaborate.find(@idea.idealizer).id) %></p>
+	<p><strong>Idealizador(a): </strong><%= link_to "#{@user_collaborate.find(@idea.idealizer).name} #{@user_collaborate.find(@idea.idealizer).last_name}", perfil_path(@user_collaborate.find(@idea.idealizer).id) %></p>
 	<p><strong>Gostei: </strong>
 		<% if @idea.like == nil %>
 			0

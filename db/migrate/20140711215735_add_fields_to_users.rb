@@ -6,5 +6,7 @@ class AddFieldsToUsers < ActiveRecord::Migration
   	add_column :users, :web_site, :string
   	add_column :users, :contact, :string
   	add_column :users, :collaborate, :string
+  	add_column :users, :liked, :integer
+  	add_column :users, :nliked, :integer
   end
 end

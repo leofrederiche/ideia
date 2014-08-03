@@ -1,6 +1,6 @@
 <div id="panel2" style="">
 
-	<h1 style="position: relative; left: 200px;">Top Idéias</h1>
+	<h1 style="position: relative; left: 200px; margin-right: 200px;">Top Idéias</h1>
 	<%= image_tag "crown.png", id: "crown" %>
 </div>
 
@@ -13,12 +13,13 @@
 	<br>
 	<% @ideas.order([:like]).reverse.each do |i| %>
 		<div id="ideaInfo">
-			<p>
-				<strong style="margin-left: 30px;"><%= link_to i.title, show_path(i.id) %></strong>
-				<span style="position: absolute; left: 25%;"><%= i.description %></span>
-				<strong style="position: absolute; left: 70%;"><%= link_to "#{@user_all.find(i.idealizer).name} #{@user_all.find(i.idealizer).last_name}", perfil_path(i.idealizer) %></strong>
-				<span style="position: absolute; left: 88%; width: 150px;">
-					<%= link_to (image_tag "like.png"), update_like_path(i.id), title: "like", onclick: "block_like();", id: "like" %>
+		 	<p>
+				<strong style="margin-left: 30px;"><%= link_to i.title, show_path(i.id) %></strong><br>
+				<span style="position: relative; left: 3.5%; font-size: 50%;"><%= i.description %></span>
+				<strong style="position: absolute; left: 75%; top: 25%;">
+					<%= link_to "#{@user_all.find(i.idealizer).name} #{@user_all.find(i.idealizer).last_name}", perfil_path(i.idealizer) %></strong><br>
+				<span style="position: absolute; left: 75%; width: 150px; top: 50%;">
+					<%= link_to (image_tag "like.png"), update_like_path(i.id), title: "like", id: "like" %>
 					<% if i.like == nil %>
 						0
 					<% else %>

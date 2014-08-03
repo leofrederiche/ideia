@@ -2,17 +2,17 @@
 <div id="windows_form">
 	<h3>Teve uma Idéia? Compartilhe com todos</h3>
 	<%= form_for @new_idea, url: root_path do |n| %>
-		<%= n.text_field :title, maxlength: "15", placeholder: "Titulo da Ídéia (maximo de 15)", id: "input_text_form" %><br>
+		<%= n.text_field :title, placeholder: "Titulo da Ídéia", id: "input_text_form" %><br>
 
-		<%= n.text_field :description, maxlength: "35", placeholder: "Descrisão Básica (maximo de 35)", id: "input_text_form" %><br>
+		<%= n.text_field :description, placeholder: "Descrisão Básica", id: "input_text_form" %><br>
 
-		<%= n.text_field :idea, placeholder: "Idéia Completa", id: "input_text_form" %><br>
+		<%= n.text_area :idea, placeholder: "Idéia Completa", id: "input_text_form" %><br>
 
 		<%= n.text_field :contact, placeholder: "Contato", id: "input_text_form" %><br>
 
 		<%= n.text_field :link_project, placeholder: "Link do projeto", id: "input_text_form" %><br>
 
-		<%= n.text_field :idealizer, maxlength: "20", width: "150px", value: "#{@user.id} ", readonly: true, id: "input_text_form" %><br>
+		<%= n.text_field :idealizer, width: "150px", value: "#{@user.id} ", readonly: true, id: "input_text_form", style: "display: none;" %><br>
 
 		<%= n.submit "Adicionar", id: "btnForm" %>
 	<% end %>

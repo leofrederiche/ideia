@@ -9,7 +9,7 @@
 </head>
 <body id="bodyAll">
 
-<nav class="navbar">
+<nav>
 	<%= link_to "Group Idea", root_path, id: "titleNav" %>
 	<%= link_to "Top-Ideias", top_idea_path, id: "linkNav" %>
 	<%= link_to "Como Funciona", about_path, id: "linkNav" %>
@@ -17,8 +17,10 @@
 	<% if user_signed_in? %>
 	<div id="logar" style="color: white;">
 
-		<%= image_tag "arrow_down_menu2.png", onclick: "openMenu();", id: "arrow_down_menu" %>
-		<span style="position: relative; float: right; top: 20px; margin-right: 30px;">Bem vinda(o), <%= @user.name %> !</span>
+		
+		<%= image_tag "btn_menu_nav.png", onclick: "openMenu();", id: "arrow_down_menu" %>
+		<span style="position: relative; float: right; top: 20px; margin-right: 30px;">Bem vinda(o), <%= @user.name %></span>
+
 
 		<div id="user_menu">
 			<ul>
