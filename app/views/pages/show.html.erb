@@ -35,12 +35,15 @@
 		<p style="color: red;" ><strong>Você está colaborando em outra idéia.</strong></p>
 	<% end %>
 
-	<% if @user.email == @idea.idealizer %>
+	<% if @idea.idealizer.to_i == @user.id.to_i %>
+	<%= link_to "Finalizar Idéia", delete_path %>
+	<%= link_to "Editar Idéia", edit_path %>
+
 		<p><strong>Colaboradores: </strong>
 
 			<% @user_collaborate.each do |u|%>
 				<% if u.collaborate.to_s == @idea.id.to_s %>
-					<p><%= "#{u.name} #{u.last_name} (#{u.contact})" %></p>
+					<p><%= link_to "#{u.name} #{u.last_name}", perfil_path(u.id) %></p>
 				<% end %>
 			<% end %>
 		</p>

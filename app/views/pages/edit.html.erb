@@ -1,7 +1,7 @@
 <aside>
 <div id="windows_form">
-	<h3>Teve uma Idéia? Compartilhe com todos</h3>
-	<%= form_for @new_idea, url: root_path do |n| %>
+	<h3>Alguma coisa errada? Da uma editada ai vai !</h3>
+	<%= form_for @idea, url: update_idea_path do |n| %>
 		<%= n.text_field :title, placeholder: "Titulo da Ídéia", id: "input_text_form" %><br>
 
 		<%= n.text_field :description, placeholder: "Descrisão Básica", id: "input_text_form" %><br>
@@ -14,7 +14,7 @@
 
 		<%= n.text_field :idealizer, width: "150px", value: "#{@user.id} ", readonly: true, id: "input_text_form", style: "display: none;" %><br>
 
-		<%= n.submit "Adicionar", id: "btnForm" %>
+		<%= n.submit "Salvar", id: "btnForm" %>
 	<% end %>
 </div>
 

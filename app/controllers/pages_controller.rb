@@ -49,6 +49,23 @@ class PagesController < ApplicationController
 		end
 	end
 
+	def delete
+		@idea = Ideas.find params[:id]
+		@idea.delete
+		redirect_to user_ideas
+	end
+
+	def edit
+		@idea = Ideas.find params[:id]
+	end
+
+	def update_idea
+		@ideia = Ideas.find params[:id]
+		@ideia.update_attributes(params.require(:ideas).permit(:title, :description, :idea, :contact, :link_project, :idealizer))
+
+		redirect_to user_ideas_path
+	end
+
 	def update_like
 		@idea = Ideas.find params[:id]
 
