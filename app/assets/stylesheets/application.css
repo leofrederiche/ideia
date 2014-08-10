@@ -188,6 +188,11 @@ section{
 	left: 10%;
 }
 
+#space{
+	position: relative;
+	height: 200px;
+}
+
 
 #imgSettings{
 	width: 25%;
@@ -324,12 +329,12 @@ aside #imgOpenSource{
 }
 
 #windows_form{
-	position: absolute;
+	position: relative;
 	padding: 40px;
 	background-color: rgba(0,0,0,0.05);
 	width: 50%;
 	left: 20%;
-	top: 20%;
+	top: 125px;
 	text-align: center;
 	border: 1px solid lightblue;
 }
@@ -338,11 +343,12 @@ aside #imgOpenSource{
 	border: 1px solid lightblue;
 	position: absolute;
 	top: 20%;
-	left: 76.5%;
+	left: 73%;
 	padding: 20px;
 	padding-top: 0px;
 	background-color: rgba(0,0,0,0.05);
 	width: 20%;
+	text-align: left;
 }
 
 #input_text_form{

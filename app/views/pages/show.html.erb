@@ -19,6 +19,29 @@
 	<% end %>
 </aside>
 
+<div id="windows_form" style="left: 10%; top: 150px; position: relative; text-align: left;">
+	<h3>Tem alguma opinião ou melhoria para "<%= @idea.title %>" ?</h3>
+	<%= form_for @new_coment, url: show_path(@idea.id) do |n| %>
+		<%= n.text_field :description, style: "width: 500px; height: 100px;" %>
+		<%= n.submit "Enviar comentario", id: "btnForm" %>
+	<% end %>
+
+	<br>
+
+	<% @coments.reverse.each do |c| %>
+		<% if c.idea_id == @idea.id %>
+			<div style="border-top: 1px solid rgba(0,0,0,0.2);">
+				<h6 style="position: relative; float: right;"><%= c.created_at %></h6>
+				<h3><%= "#{@user_collaborate.find(c.user_id).name} #{@user_collaborate.find(c.user_id).last_name}" %></h3>
+
+				<p><%= c.description %></p>	
+				
+			</div>		
+		<% end %>
+	<% end %>
+	
+</div>
+
 
 <section id="options_form">
 	<h3>Informações</h3>
@@ -61,3 +84,6 @@
 		<p style="color: red;" ><strong>Você está colaborando em outra idéia.</strong></p>
 	<% end %>
 </section>
+
+<div id="space">
+</div>

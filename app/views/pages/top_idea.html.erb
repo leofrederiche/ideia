@@ -26,6 +26,13 @@
 		<% end %>
 	<% end %>
 
+	<% @coment = 0 %>
+	<% @coments.each do |c| %>
+		<% if c.idea_id == i.id %>
+			<% @coment = @coment + 1 %>
+		<% end %>
+	<% end %>
+
 		<div id="ideaInfo">
 		 	<p>
 				<strong style="margin-left: 30px;"><%= link_to i.title, show_path(i.id) %></strong><br>
@@ -39,7 +46,7 @@
 					<%= image_tag "unlike_icon.png", style: "width: 30px;" %>
 						<%= @unlike %>
 					<%= image_tag "coment_icon2.png", width: "30px;" %>
-					12
+					<%= @coment %>
 				</span>
 			</p>
 		</div>

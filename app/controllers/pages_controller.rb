@@ -29,6 +29,9 @@ class PagesController < ApplicationController
 	def top_idea
 		@ideas = Ideas.all
 
+		@coments = Coments.all
+		@coment = 0
+
 		@votation = Votation.all
 		@like = 0
 		@unlike = 0
@@ -37,6 +40,10 @@ class PagesController < ApplicationController
 	def show
 		@idea = Ideas.find params[:id]
 		@user_collaborate = User.all
+
+		@new_coment = Coments.new
+		@coments = Coments.all
+
 		@votation = Votation.all
 		@status_votation = false
 		@like = 0
@@ -128,6 +135,15 @@ class PagesController < ApplicationController
 
 			redirect_to show_path(@idea)
 		end
+	end
 
+	def create_coment
+		@idea = Ideas.find params[:id]
+		@coment =  Coments.create(params.require(:coments).permit(:idea_id, :user_id, :description))
+		@coment.idea_id = @idea.id
+		@coment.user_id = @user.id
+		@coment.save
+
+		redirect_to show_path(@idea.id)
 	end
 end

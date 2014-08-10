@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "/nova-ideia", to: "pages#new_idea", as: :new_idea
 
   get "/ideia/:id", to: "pages#show", as: :show
+  post "/ideia/:id", to: "pages#create_coment", as: :create_coment
   patch "/ideia/:id", to: "pages#update", as: :update
   get "/edit/idea/:id", to: "pages#edit", as: :edit
   patch "/edit/idea/:id", to: "pages#update_idea", as: :update_idea
