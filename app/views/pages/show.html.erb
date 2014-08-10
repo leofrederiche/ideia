@@ -23,6 +23,7 @@
 	<h3>Tem alguma opinião ou melhoria para "<%= @idea.title %>" ?</h3>
 	<%= form_for @new_coment, url: show_path(@idea.id) do |n| %>
 		<%= n.text_area :description, style: "width: 500px; height: 100px;" %>
+		<br>
 		<%= n.submit "Enviar comentario", id: "btnForm" %>
 	<% end %>
 
