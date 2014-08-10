@@ -22,7 +22,7 @@
 <div id="windows_form" style="left: 10%; top: 150px; position: relative; text-align: left;">
 	<h3>Tem alguma opinião ou melhoria para "<%= @idea.title %>" ?</h3>
 	<%= form_for @new_coment, url: show_path(@idea.id) do |n| %>
-		<%= n.text_field :description, style: "width: 500px; height: 100px;" %>
+		<%= n.text_area :description, style: "width: 500px; height: 100px;" %>
 		<%= n.submit "Enviar comentario", id: "btnForm" %>
 	<% end %>
 
