@@ -8,28 +8,35 @@
 
 <aside style="position: relative; top: 200px;">
 	<% @user_ideas.each do |i| %>
-
+	
 	<% if i.idealizer.to_i == @user.id.to_i %>
-		<div id="ideaInfo" style="position: relative; top: 0px;" >
-			<p>
+		<% @like = 0 %>
+	<% @unlike = 0 %>
+
+	<% @votation.each do |v| %>
+		<% if v.idea_id == i.id %>
+			<% if v.like %>
+				<% @like = @like + 1 %>
+			<% else %>
+				<% @unlike = @unlike + 1 %>
+			<% end %>
+		<% end %>
+	<% end %>
+
+		<div id="ideaInfo", style="top: 10%;">
+		 	<p>
 				<strong style="margin-left: 30px;"><%= link_to i.title, show_path(i.id) %></strong><br>
 				<span style="position: relative; left: 3.5%; font-size: 50%;"><%= i.description %></span>
 				<strong style="position: absolute; left: 75%; top: 25%;">
 					<%= link_to "#{@user_all.find(i.idealizer).name} #{@user_all.find(i.idealizer).last_name}", perfil_path(i.idealizer) %></strong><br>
-				<span style="position: absolute; left: 75%; width: 150px; top: 50%;">
-					<%= link_to (image_tag "like.png"), update_like_path(i.id), title: "like", onclick: "block_like();", id: "like" %>
-					<% if i.like == nil %>
-						0
-					<% else %>
-						<%= i.like %>	
-					<% end %>
+				<span style="position: absolute; left: 75%; width: 250px; top: 50%;">
+					<%= image_tag "like_icon.png", width: "30px" %>
+						<%= @like %>
 
-					<%= link_to (image_tag "nlike.png"), update_nlike_path(i.id), title: "dislike" %>
-					<% if i.nlike == nil %>
-						0
-					<% else %>
-						<%= i.nlike %>
-					<% end %>
+					<%= image_tag "unlike_icon.png", style: "width: 30px;" %>
+						<%= @unlike %>
+					<%= image_tag "coment_icon2.png", width: "30px;" %>
+					12
 				</span>
 			</p>
 		</div>

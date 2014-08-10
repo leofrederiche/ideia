@@ -1,25 +1,51 @@
-<aside id="windows_form">
-	<p><strong>Titulo: </strong><%= @idea.title %></p>
+<h1 style="position: absolute; left: 10%; top: 10%;"><%= @idea.title %></h1>
+
+<aside id="windows_form" style="text-align: left; left: 10%;">
 	<p><strong>Descrição: </strong><%= @idea.description %></p>
 	<strong>Ideia: </strong><scan style="width: 300px; height: 400px;"><%= @idea.idea %></scan>
 	<p><strong>Contato: </strong><%= @idea.contact %></p>
 	<p><strong>Link do projeto: </strong><%= link_to @idea.link_project, @idea.link_project %></p>
 	<p><strong>Idealizador(a): </strong><%= link_to "#{@user_collaborate.find(@idea.idealizer).name} #{@user_collaborate.find(@idea.idealizer).last_name}", perfil_path(@user_collaborate.find(@idea.idealizer).id) %></p>
-	<p><strong>Gostei: </strong>
-		<% if @idea.like == nil %>
-			0
-		<% else %>
-			<%= @idea.like %>	
-		<% end %>
-	</p>
-	<p><strong>Não Gostei: </strong>
-		<% if @idea.nlike == nil %>
-			0
-		<% else %>
-			<%= @idea.nlike %>
-		<% end %>
-	</p>
 
+	<% if @idea.idealizer.to_i == @user.id.to_i %>
+		<p><strong>Colaboradores: </strong>
+
+			<% @user_collaborate.each do |u|%>
+				<% if u.collaborate.to_s == @idea.id.to_s %>
+					<p><%= link_to "#{u.name} #{u.last_name}", perfil_path(u.id) %></p>
+				<% end %>
+			<% end %>
+		</p>
+	<% end %>
+</aside>
+
+
+<section id="options_form">
+	<h3>Informações</h3>
+	<% if @idea.idealizer.to_i == @user.id.to_i %>
+		<h5>- <%= link_to "Finalizar Idéia", delete_path %></h5>
+		<h5>- <%= link_to "Editar Idéia", edit_path %></h5>
+	<% end %>
+	<br>
+	<h6>Vote você támbem</h6>
+	<p>
+		<% @votation.each do |v| %>
+			<% if v.idea_id == @idea.id %>
+				<% if v.like %>
+					<% @like = @like + 1 %>
+				<% else %>
+					<% @unlike = @unlike + 1 %>
+				<% end %>
+			<% end %>
+		<% end %>
+		
+		<%= link_to (image_tag "like_icon.png", width: "40px"), update_like_path(@idea.id) %>
+		<%= @like %>		
+	
+		<%= link_to (image_tag "unlike_icon.png", width: "40px"), update_nlike_path(@idea.id) %>
+		<%= @unlike %>
+	</p>
+	<br><br>
 	<% if @user.collaborate == nil %>
 		<% if @user.contact == nil %>
 			<p style="color: red"><strong>Você precisa adicionar um contato no seu perfil para poder colaborar.</strong></p>
@@ -34,20 +60,4 @@
 	<% else %>
 		<p style="color: red;" ><strong>Você está colaborando em outra idéia.</strong></p>
 	<% end %>
-
-	<% if @idea.idealizer.to_i == @user.id.to_i %>
-	<%= link_to "Finalizar Idéia", delete_path %>
-	<%= link_to "Editar Idéia", edit_path %>
-
-		<p><strong>Colaboradores: </strong>
-
-			<% @user_collaborate.each do |u|%>
-				<% if u.collaborate.to_s == @idea.id.to_s %>
-					<p><%= link_to "#{u.name} #{u.last_name}", perfil_path(u.id) %></p>
-				<% end %>
-			<% end %>
-		</p>
-	<% end %>
-
-
-</aside>
+</section>

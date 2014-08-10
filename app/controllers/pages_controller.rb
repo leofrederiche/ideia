@@ -28,11 +28,20 @@ class PagesController < ApplicationController
 
 	def top_idea
 		@ideas = Ideas.all
+
+		@votation = Votation.all
+		@like = 0
+		@unlike = 0
 	end
 
 	def show
 		@idea = Ideas.find params[:id]
 		@user_collaborate = User.all
+		@votation = Votation.all
+		@status_votation = false
+		@like = 0
+		@unlike = 0
+		
 		if user_signed_in?
 			@new_idea = Ideas.new
 		end
@@ -68,74 +77,57 @@ class PagesController < ApplicationController
 
 	def update_like
 		@idea = Ideas.find params[:id]
+		@votation = Votation.all
+		@status_votation = false
 
-		if @user.liked == @idea.id
-			redirect_to top_idea_path
+		@votation.each do |v|
+			if @idea.id == v.idea_id and @user.id == v.user_id
+				v.like = true
+				v.save
 
-		elsif @user.liked == nil
-			@user.liked = @idea.id
-			@user.save
-			if @idea.like == nil
-				@idea.like = 1
-			else
-				@idea.like = @idea.like + 1
-				@idea.save
-			end
-			redirect_to top_idea_path
-			if user_signed_in?
-				@new_idea = Ideas.new
+				@status_votation = true	
 			end
 
+		end
+
+		if @status_votation == true
+			redirect_to show_path(@idea)
 		else
-			@user.liked = @idea.id
-			@user.save
-			if @idea.like == nil
-				@idea.like = 1
-			else
-				@idea.like = @idea.like + 1
-				@idea.save
-			end
-			redirect_to top_idea_path
-			if user_signed_in?
-				@new_idea = Ideas.new
-			end
+			@votation = Votation.create
+			@votation.idea_id = @idea.id
+			@votation.user_id = @user.id
+			@votation.like = true
+			@votation.save
 
-		end		
+			redirect_to show_path(@idea)
+		end
 	end
 
 	def update_nlike
 		@idea = Ideas.find params[:id]
-		if @user.nliked == @idea.id
-			redirect_to top_idea_path
+		@votation = Votation.all
+		@status_votation = false
 
-		elsif @user.nliked == nil
-			@user.nliked = @idea.id
-			@user.save
-			if @idea.nlike == nil
-				@idea.nlike = 1
-			else
-				@idea.nlike = @idea.nlike + 1
-				@idea.save
-			end
-			redirect_to top_idea_path
-			if user_signed_in?
-				@new_idea = Ideas.new
-			end
+		@votation.each do |v|
+			if @idea.id == v.idea_id and @user.id == v.user_id
+				v.like = false
+				v.save
 
-		else
-			@user.nliked = @idea.id
-			@user.save
-			if @idea.nlike == nil
-				@idea.nlike = 1
-			else
-				@idea.nlike = @idea.nlike + 1
-				@idea.save
+				@status_votation = true	
 			end
-			redirect_to top_idea_path
-			if user_signed_in?
-				@new_idea = Ideas.new
-			end
-			
 		end
+
+		if @status_votation == true
+			redirect_to show_path(@idea)
+		else
+			@votation = Votation.create
+			@votation.idea_id = @idea.id
+			@votation.user_id = @user.id
+			@votation.like = false
+			@votation.save
+
+			redirect_to show_path(@idea)
+		end
+
 	end
 end

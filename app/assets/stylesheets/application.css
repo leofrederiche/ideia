@@ -131,6 +131,7 @@ li:hover{
 	bottom: 0;
 }
 
+
 /* index */
 
 #panel{
@@ -139,7 +140,6 @@ li:hover{
 	height: 84%;
 	width: 100%;
 	background-image: linear-gradient(to bottom, #DF6E32, #DE6A2F);
-	/*background-image: url('/assets/background_index2.jpg'); */
 	background-size: cover;
 }
 
@@ -326,11 +326,23 @@ aside #imgOpenSource{
 #windows_form{
 	position: absolute;
 	padding: 40px;
-	text-align: center;
-	box-shadow: 0px 0px 3px rgba(0,0,0,0.5);
 	background-color: rgba(0,0,0,0.05);
 	width: 50%;
 	left: 20%;
+	top: 20%;
+	text-align: center;
+	border: 1px solid lightblue;
+}
+
+#options_form{
+	border: 1px solid lightblue;
+	position: absolute;
+	top: 20%;
+	left: 76.5%;
+	padding: 20px;
+	padding-top: 0px;
+	background-color: rgba(0,0,0,0.05);
+	width: 20%;
 }
 
 #input_text_form{

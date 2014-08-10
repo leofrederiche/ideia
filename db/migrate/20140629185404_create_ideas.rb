@@ -7,8 +7,6 @@ class CreateIdeas < ActiveRecord::Migration
       t.string :contact
       t.string :link_project
       t.string :idealizer
-      t.integer :like
-      t.integer :nlike
 
       t.timestamps
     end

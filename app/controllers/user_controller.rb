@@ -7,6 +7,10 @@ class UserController < ApplicationController
 	def user_ideas
 		@user_ideas = Ideas.all
 		@user = User.find(current_user)
+
+		@votation = Votation.all
+		@like = 0
+		@unlike = 0
 	end
 
 	def collaborate
