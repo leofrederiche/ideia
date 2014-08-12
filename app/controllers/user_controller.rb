@@ -8,6 +8,9 @@ class UserController < ApplicationController
 		@user_ideas = Ideas.all
 		@user = User.find(current_user)
 
+		@coments = Coments.all
+		@coment = 0
+
 		@votation = Votation.all
 		@like = 0
 		@unlike = 0
