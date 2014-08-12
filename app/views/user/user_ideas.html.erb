@@ -23,6 +23,13 @@
 		<% end %>
 	<% end %>
 
+	<% @coment = 0 %>
+	<% @coments.each do |c| %>
+		<% if c.idea_id == i.id %>
+			<% @coment = @coment + 1 %>
+		<% end %>
+	<% end %>
+
 		<div id="ideaInfo", style="top: 10%;">
 		 	<p>
 				<strong style="margin-left: 30px;"><%= link_to i.title, show_path(i.id) %></strong><br>
