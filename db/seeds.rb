@@ -36,15 +36,6 @@ idea_leo.link_project = "http://www.meulivro.tk/"
 idea_leo.idealizer = 1
 idea_leo.save
 
-idea_ana = Ideas.create
-idea_ana.title = "Ser Kawaii"
-idea_ana.description = "Seja Kawaii hoje, Kawaii amanhã, Kawaii Sempre!!!"
-idea_ana.idea = "Porque ser triste ou chatiado se podemos ser kawaii e viver mais feliz com as pessoas que amamos? =^.^="
-idea_ana.contact = "anahelena@hotmail.com"
-idea_ana.link_project = "http://www.sejakawaii.com/"
-idea_ana.idealizer = 2
-idea_ana.save
-
 / votação de leo / 
 votation_idea_leo = Votation.create
 votation_idea_leo.idea_id = 1
