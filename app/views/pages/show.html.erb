@@ -19,11 +19,10 @@
 	<% end %>
 </aside>
 
-<div id="windows_form" style="left: 10%; top: 150px; position: relative; text-align: left;">
+<div id="windows_form" style="left: 10%; top: 150px; position: relative;">
 	<h3>Tem alguma opinião ou melhoria para "<%= @idea.title %>" ?</h3>
 	<%= form_for @new_coment, url: show_path(@idea.id) do |n| %>
 		<%= n.text_area :description, style: "width: 500px; height: 100px;" %>
-		<br>
 		<%= n.submit "Enviar comentario", id: "btnForm" %>
 	<% end %>
 
@@ -31,8 +30,8 @@
 
 	<% @coments.reverse.each do |c| %>
 		<% if c.idea_id == @idea.id %>
-			<div style="border-top: 1px solid rgba(0,0,0,0.2);">
-				<h6 style="position: relative; float: right;"><%= c.created_at %></h6>
+			<div style="border-top: 1px solid rgba(0,0,0,0.2); text-align: left;">
+				<h6 style="position: relative; float: right;"><%= c.created_at.strftime("%d %b. %Y") %></h6>
 				<h3><%= "#{@user_collaborate.find(c.user_id).name} #{@user_collaborate.find(c.user_id).last_name}" %></h3>
 
 				<p><%= c.description %></p>	
@@ -50,7 +49,6 @@
 		<h5>- <%= link_to "Finalizar Idéia", delete_path %></h5>
 		<h5>- <%= link_to "Editar Idéia", edit_path %></h5>
 	<% end %>
-	<br>
 	<h6>Vote você támbem</h6>
 	<p>
 		<% @votation.each do |v| %>
@@ -69,7 +67,6 @@
 		<%= link_to (image_tag "unlike_icon.png", width: "40px"), update_nlike_path(@idea.id) %>
 		<%= @unlike %>
 	</p>
-	<br><br>
 	<% if @user.collaborate == nil %>
 		<% if @user.contact == nil %>
 			<p style="color: red"><strong>Você precisa adicionar um contato no seu perfil para poder colaborar.</strong></p>
@@ -86,5 +83,3 @@
 	<% end %>
 </section>
 
-<div id="space">
-</div>

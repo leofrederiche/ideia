@@ -40,7 +40,7 @@ input{
 	padding: 5px;
 	float: left;
 	margin-top: 10px;
-	margin-left: 15%;
+	margin-left: 10%;
 }
 
 #linkNav{
@@ -85,7 +85,7 @@ input{
 	position: relative;
 	float: right;
 	top: 18px;
-	margin-right: 5%;
+	margin-right: 10%;
 }
 
 #user_menu{
@@ -204,7 +204,6 @@ section{
 h4{
 	color: rgba(0,0,0,0.8);
 	font-size: 275%;
-	text-indent: 5%;
 }
 
 #container{
@@ -215,7 +214,7 @@ h4{
 
 #container2{
 	margin-top: 10%;
-	text-align: right;
+	text-align: left;
 	border-bottom: 1px solid rgba(0,0,0,0.3);
 	padding-bottom: 5%;
 }
@@ -246,6 +245,7 @@ aside #container{
 aside #container2{
 	margin-top: 0;
 	border: none;
+	text-align: left;
 }
 
 aside #container3{
@@ -253,6 +253,7 @@ aside #container3{
 	margin-top: 0;
 	border: none;
 	float: left;
+	margin-bottom: 100px;
 }
 
 aside #container4{

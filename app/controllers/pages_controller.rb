@@ -15,9 +15,7 @@ class PagesController < ApplicationController
 	end
 
 	def create
-		@idea = Ideas.create(params.require(:ideas).permit(:title, :description, :idea, :contact, :link_project, :idealizer, :like, :nlike))
-		@idea.like = 0
-		@idea.nlike = 0
+		@idea = Ideas.create(params.require(:ideas).permit(:title, :description, :idea, :contact, :link_project, :idealizer))
 		@idea.save
 
 		redirect_to show_path @idea
@@ -68,7 +66,18 @@ class PagesController < ApplicationController
 	def delete
 		@idea = Ideas.find params[:id]
 		@idea.delete
-		redirect_to user_ideas
+
+		@user.collaborate = nil
+		@user.save
+
+		User.all.each do |u| 
+			if u.collaborate.to_i == @idea.id.to_i
+				u.collaborate = nil
+				u.save
+			end
+		end
+
+		redirect_to user_ideas_path
 	end
 
 	def edit
