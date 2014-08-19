@@ -11,6 +11,7 @@
 <aside style="top: 41%">
 	
 	<br>
+
 	<% @ideas.each do |i| %>
 
 	<% @like = 0 %>
@@ -26,6 +27,8 @@
 		<% end %>
 	<% end %>
 
+
+
 	<% @coment = 0 %>
 	<% @coments.each do |c| %>
 		<% if c.idea_id == i.id %>
@@ -36,7 +39,7 @@
 		<div id="ideaInfo">
 		 	<p>
 				<strong style="margin-left: 30px;"><%= link_to i.title, show_path(i.id) %></strong><br>
-				<span style="position: relative; left: 3.5%; font-size: 50%;"><%= i.description %></span>
+				<span style="margin-left: 32px; font-size: 50%;"><%= i.description %></span>
 				<strong style="position: absolute; left: 75%; top: 25%;">
 					<%= link_to "#{@user_all.find(i.idealizer).name} #{@user_all.find(i.idealizer).last_name}", perfil_path(i.idealizer) %></strong><br>
 				<span style="position: absolute; left: 75%; width: 250px; top: 50%;">
